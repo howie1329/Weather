@@ -17,7 +17,8 @@ struct MainView: View {
                 
                 VStack{
                     Text("Feels Like \(model.feelsLike)")
-                    Text(String(model.CityModel.main?.temp ?? 0.00))
+                    Text(model.description)
+                    Text(model.currentTemp)
                 }
                 
 
