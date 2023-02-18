@@ -11,13 +11,8 @@ struct MainView: View {
     var data = Data()
     
     var body: some View {
-        ZStack(alignment:.top){
-            Rectangle()
-                .foregroundColor(.blue)
-            CityView(cities: data.cities, cityList: data.cityList)
-            
-            
-        }
+        CityView(cities: data.cities, cityList: data.cityList)
+            .background(Color.blue)
     }
     
 }

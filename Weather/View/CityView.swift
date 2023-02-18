@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CityView: View {
     
-    @EnvironmentObject var model: CityWeatherModel
+    @EnvironmentObject var model:CityWeatherModel
     var cities:[String:[Double]]
     var cityList:[String]
     @State var currentCity = "New York"
@@ -53,3 +53,10 @@ struct CityView: View {
     }
 }
 
+struct CityView_Previews: PreviewProvider {
+    static var previews: some View {
+        var data = Data()
+        CityView(cities: data.cities, cityList: data.cityList)
+            .environmentObject(CityWeatherModel())
+    }
+}
