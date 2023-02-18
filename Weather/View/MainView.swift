@@ -11,8 +11,10 @@ struct MainView: View {
     var data = Data()
     
     var body: some View {
-        CityView(cities: data.cities, cityList: data.cityList)
-            .background(Color.blue)
+        NavigationView{
+            CityView(cities: data.cities, cityList: data.cityList)
+                .background(Color.blue)
+        }
     }
     
 }

@@ -12,6 +12,7 @@ struct CityView: View {
     @EnvironmentObject var model:CityWeatherModel
     var cities:[String:[Double]]
     var cityList:[String]
+    @State var showDetailView = false
     @State var currentCity = "New York"
     
     var body: some View {
@@ -44,6 +45,15 @@ struct CityView: View {
                     .font(.system(size: 30))
                 Text("Min: \(model.minTemp)° Max: \(model.maxTemp)°")
                 
+                Button("Tap For Details"){
+                    showDetailView.toggle()
+                }.sheet(isPresented: $showDetailView) {
+                    CityDetailView()
+                }
+                .foregroundColor(.black)
+                .buttonStyle(.bordered)
+
+
             }
             
             Spacer()
