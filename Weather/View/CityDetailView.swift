@@ -12,10 +12,30 @@ struct CityDetailView: View {
     var currentCity:String
     
     var body: some View {
-        VStack{
-            Text(currentCity)
-            Text(model.maxTemp)
+        VStack(spacing:30){
+            HStack(spacing:30){
+                Text(currentCity)
+                Text("\(model.currentTemp)°")
+                Text(model.simpleDescription)
+            }
+            .bold()
+            .font(.title)
+            HStack{
+                VStack(spacing:10){
+                    Text("Feels Like: \(model.feelsLike)°")
+                    Text("Min Temp: \(model.minTemp)°")
+                }
+                Text(model.description)
+                VStack(spacing:10){
+                    Text("Max Temp: \(model.maxTemp)°")
+                    Text("Wind Speed: \(model.windSpeed) mph")
+                }
+            }
+            .bold()
+            .font(.headline)
+  
         }
+        .padding()
         .navigationTitle("Detail View")
     }
 }

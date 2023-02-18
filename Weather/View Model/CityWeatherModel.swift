@@ -19,6 +19,8 @@ class CityWeatherModel: ObservableObject {
     var description = ""
     var minTemp = ""
     var maxTemp = ""
+    var simpleDescription = ""
+    var windSpeed = ""
     
     init(){
         getWeather(lat: latitude, long: longitude)
@@ -53,6 +55,8 @@ class CityWeatherModel: ObservableObject {
                     self.description = self.CityModel.weather?[0].description ?? "NONE"
                     self.minTemp = String(format: "%.0f", self.CityModel.main?.temp_min ?? 0.00)
                     self.maxTemp = String(format: "%.0f", self.CityModel.main?.temp_max ?? 0.00)
+                    self.simpleDescription = self.CityModel.weather?[0].main ?? "NONE"
+                    self.windSpeed = String(format:"%.0f",self.CityModel.wind?.speed ?? 0.00)
                     print(result)
                 }
                 catch{
