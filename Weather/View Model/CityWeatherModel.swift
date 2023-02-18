@@ -19,11 +19,13 @@ class CityWeatherModel: ObservableObject {
     var description = ""
     var minTemp = ""
     var maxTemp = ""
+    
     init(){
         getWeather(lat: latitude, long: longitude)
     }
     
     
+    // MARK: Method To Get Current Weather Conditions
     
     func getWeather(lat:Double,long:Double){
         // Create URL
@@ -60,7 +62,5 @@ class CityWeatherModel: ObservableObject {
         }
         
         dataTask.resume()
-        
-        //
     }
 }
