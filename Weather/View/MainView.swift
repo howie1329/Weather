@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct MainView: View {
+    var model = CityWeatherModel()
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Button {
+                model.getWeather()
+            } label: {
+                Text("Press Me")
+            }
+
         }
         .padding()
     }
