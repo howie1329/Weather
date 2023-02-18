@@ -24,20 +24,21 @@ struct CityView: View {
                 .font(.system(size: 50, weight: .bold))
                 .padding(.bottom,5)
             
-            VStack(alignment:.center){
-                HStack{
-                    Text("\(model.currentTemp)°")
-                        .font(.system(size: 60, weight: .bold))
-                    Text("Feels Like: \(model.feelsLike)°")
-                        .font(.subheadline)
+            VStack(alignment:.center,spacing: 50){
+                VStack{
+                    HStack{
+                        Text("\(model.currentTemp)°")
+                            .font(.system(size: 60, weight: .bold))
+                        Text("Feels Like: \(model.feelsLike)°")
+                            .font(.subheadline)
+                            .bold()
+                    }
+                    Text(model.description)
                         .bold()
+                        .font(.system(size: 30))
+                    Text("Min: \(model.minTemp)° Max: \(model.maxTemp)°")
+                        .font(.subheadline)
                 }
-                Text(model.description)
-                    .font(.system(size: 30))
-                Text("Min: \(model.minTemp)° Max: \(model.maxTemp)°")
-                
-                Spacer()
-                
                 Button("Tap For Details"){
                     showDetailView.toggle()
                 }.sheet(isPresented: $showDetailView) {
@@ -45,8 +46,7 @@ struct CityView: View {
                 }
                 .foregroundColor(.black)
                 .buttonStyle(.bordered)
-
-
+                
             }
             .onAppear(){
                 model.getWeather(lat: Data().cities[currentCity]![0], long: Data().cities[currentCity]![1])
@@ -54,7 +54,6 @@ struct CityView: View {
             
             Spacer()
         }
-        .padding(.top,200)
     }
 }
 

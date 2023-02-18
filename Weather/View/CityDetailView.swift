@@ -12,30 +12,35 @@ struct CityDetailView: View {
     var currentCity:String
     
     var body: some View {
-        VStack(spacing:30){
-            HStack(spacing:30){
+        VStack(spacing:10){
+            VStack(spacing:10){
                 Text(currentCity)
-                Text("\(model.currentTemp)°")
-                Text(model.simpleDescription)
+                    .font(.system(size: 45, weight: .bold))
+                HStack(spacing:30){
+                    Text("\(model.currentTemp)°")
+                    Text(model.simpleDescription)
+                }
+                .bold()
+                .font(.title)
             }
-            .bold()
-            .font(.title)
-            HStack{
+            .padding(.bottom,5)
+            Text(model.description)
+                .bold()
+            HStack(spacing:10){
+                VStack(spacing:10){
+                    Text("Min Temp: \(model.minTemp)°")
+                    Text("Max Temp: \(model.maxTemp)°")
+                    
+                    
+                }
                 VStack(spacing:10){
                     Text("Feels Like: \(model.feelsLike)°")
-                    Text("Min Temp: \(model.minTemp)°")
-                }
-                Text(model.description)
-                VStack(spacing:10){
-                    Text("Max Temp: \(model.maxTemp)°")
                     Text("Wind Speed: \(model.windSpeed) mph")
                 }
             }
             .bold()
             .font(.headline)
-  
         }
-        .padding()
         .navigationTitle("Detail View")
     }
 }
