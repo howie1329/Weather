@@ -18,14 +18,14 @@ class CityWeatherModel: ObservableObject {
     var currentTemp = ""
     var description = ""
     init(){
-        getWeather()
+        getWeather(lat: latitude, long: longitude)
     }
     
     
     
-    func getWeather(){
+    func getWeather(lat:Double,long:Double){
         // Create URL
-        let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&units=imperial&appid=\(API_KEY)"
+        let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(lat)&lon=\(long)&units=imperial&appid=\(API_KEY)"
         let url = URL(string: urlString)
         
         // Get URL Request
