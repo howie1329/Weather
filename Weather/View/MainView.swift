@@ -8,16 +8,23 @@
 import SwiftUI
 
 struct MainView: View {
-    var model = CityWeatherModel()
+   @EnvironmentObject var model: CityWeatherModel
+    
+    
     var body: some View {
-        VStack {
-            Button {
-                model.getWeather()
-            } label: {
-                Text("Press Me")
-            }
+        NavigationView {
+            VStack {
+                
+                VStack{
+                    Text("Feels Like \(model.feelsLike)")
+                    Text(String(model.CityModel.main?.temp ?? 0.00))
+                }
+                
 
+            }
+            .navigationTitle("Weather Report")
         }
+        
         .padding()
     }
 }
@@ -25,5 +32,6 @@ struct MainView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            .environmentObject(CityWeatherModel())
     }
 }

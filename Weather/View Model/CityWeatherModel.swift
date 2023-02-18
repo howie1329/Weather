@@ -14,6 +14,11 @@ class CityWeatherModel: ObservableObject {
     private let latitude = 40.730610
     private let longitude = -73.935242
     
+    var feelsLike = ""
+    init(){
+        getWeather()
+    }
+    
     
     
     func getWeather(){
@@ -37,6 +42,7 @@ class CityWeatherModel: ObservableObject {
                     let decoder = JSONDecoder()
                     let result = try decoder.decode(City.self, from: data!)
                     self.CityModel = result
+                    self.feelsLike = String(format:"%.0f",self.CityModel.main?.feels_like ?? 0.00)
                     print(result)
                 }
                 catch{
