@@ -18,7 +18,7 @@ struct MainView: View {
         ZStack(alignment:.top){
             Rectangle()
                 .foregroundColor(.blue)
-            VStack(alignment:.leading,spacing:100){
+            VStack(alignment:.center){
                 HStack{
                     Picker("City", selection: $currentCity) {
                         ForEach(cityList, id:\.self){item in
@@ -29,16 +29,26 @@ struct MainView: View {
                     }.pickerStyle(.segmented)
                 }
                 
-                VStack(alignment:.leading){
+                Spacer()
+                
+                Text(currentCity)
+                    .font(.system(size: 50, weight: .bold))
+                    .padding(.bottom,5)
+                
+                VStack(alignment:.center){
                     HStack{
                         Text(model.currentTemp)
-                            .font(.largeTitle)
+                            .font(.system(size: 60, weight: .bold))
                         Text("Feels Like: \(model.feelsLike)")
-                            .font(.headline)
+                            .font(.subheadline)
+                            .bold()
                     }
                     Text(model.description)
-                        .font(.headline)
+                        .font(.system(size: 30))
+                    Text("Min: \(model.minTemp) Max: \(model.maxTemp) ")
                 }
+                Spacer()
+                Spacer()
             }
             .padding()
             
