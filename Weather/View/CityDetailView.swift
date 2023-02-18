@@ -8,14 +8,21 @@
 import SwiftUI
 
 struct CityDetailView: View {
+    @EnvironmentObject var model:CityWeatherModel
+    var currentCity:String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .navigationTitle("Detail View")
+        VStack{
+            Text(currentCity)
+            Text(model.maxTemp)
+        }
+        .navigationTitle("Detail View")
     }
 }
 
 struct CityDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CityDetailView()
+        CityDetailView(currentCity: "New York")
+            .environmentObject(CityWeatherModel())
     }
 }

@@ -41,12 +41,15 @@ struct CityView: View {
                 Button("Tap For Details"){
                     showDetailView.toggle()
                 }.sheet(isPresented: $showDetailView) {
-                    CityDetailView()
+                    CityDetailView(currentCity: currentCity)
                 }
                 .foregroundColor(.black)
                 .buttonStyle(.bordered)
 
 
+            }
+            .onAppear(){
+                model.getWeather(lat: Data().cities[currentCity]![0], long: Data().cities[currentCity]![1])
             }
             
             Spacer()
