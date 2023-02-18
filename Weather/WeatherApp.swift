@@ -12,7 +12,7 @@ struct WeatherApp: App {
     var model = CityWeatherModel()
     var body: some Scene {
         WindowGroup {
-            MainView()
+            MainTabView()
                 .environmentObject(model)
         }
     }

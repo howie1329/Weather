@@ -17,15 +17,6 @@ struct CityView: View {
     
     var body: some View {
         VStack(alignment:.center){
-            HStack{
-                Picker("City", selection: $currentCity) {
-                    ForEach(cityList, id:\.self){item in
-                        Text(item)
-                    }
-                }.onChange(of: currentCity) { newValue in
-                    model.getWeather(lat: cities[currentCity]![0], long: cities[currentCity]![1])
-                }.pickerStyle(.segmented)
-            }
             
             Spacer()
             
@@ -45,6 +36,8 @@ struct CityView: View {
                     .font(.system(size: 30))
                 Text("Min: \(model.minTemp)° Max: \(model.maxTemp)°")
                 
+                Spacer()
+                
                 Button("Tap For Details"){
                     showDetailView.toggle()
                 }.sheet(isPresented: $showDetailView) {
@@ -57,9 +50,8 @@ struct CityView: View {
             }
             
             Spacer()
-            Spacer()
         }
-        .padding()
+        .padding(.top,200)
     }
 }
 
