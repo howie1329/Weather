@@ -17,6 +17,7 @@
 		F3002C8329A0A91B00206E07 /* CityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3002C8229A0A91B00206E07 /* CityDetailView.swift */; };
 		F36C57D329A0BAA5003DE338 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36C57D229A0BAA5003DE338 /* MainTabView.swift */; };
 		F36C57D529A0BC22003DE338 /* CityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36C57D429A0BC22003DE338 /* CityListView.swift */; };
+		F36C57D729A1E38E003DE338 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36C57D629A1E38E003DE338 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		F3002C8229A0A91B00206E07 /* CityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailView.swift; sourceTree = "<group>"; };
 		F36C57D229A0BAA5003DE338 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		F36C57D429A0BC22003DE338 /* CityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListView.swift; sourceTree = "<group>"; };
+		F36C57D629A1E38E003DE338 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				F3002C8229A0A91B00206E07 /* CityDetailView.swift */,
 				F36C57D229A0BAA5003DE338 /* MainTabView.swift */,
 				F36C57D429A0BC22003DE338 /* CityListView.swift */,
+				F36C57D629A1E38E003DE338 /* ProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3002C8329A0A91B00206E07 /* CityDetailView.swift in Sources */,
+				F36C57D729A1E38E003DE338 /* ProfileView.swift in Sources */,
 				F3002C8129A0A47F00206E07 /* Data.swift in Sources */,
 				F36C57D329A0BAA5003DE338 /* MainTabView.swift in Sources */,
 				F3002C7F29A0A2EF00206E07 /* CityView.swift in Sources */,

@@ -14,6 +14,8 @@ class CityWeatherModel: ObservableObject {
     private let latitude = 40.730610
     private let longitude = -73.935242
     
+    @Published var favCity = "New York"
+    
     var feelsLike = ""
     var currentTemp = ""
     var description = ""

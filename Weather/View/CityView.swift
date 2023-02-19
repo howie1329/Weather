@@ -12,8 +12,10 @@ struct CityView: View {
     @EnvironmentObject var model:CityWeatherModel
     var cities:[String:[Double]]
     var cityList:[String]
+    
+    @State var featuredView = false
     @State var showDetailView = false
-    @State var currentCity = "New York"
+    @State var currentCity = ""
     
     var body: some View {
         VStack(alignment:.center){
@@ -49,7 +51,13 @@ struct CityView: View {
                 
             }
             .onAppear(){
-                model.getWeather(lat: Data().cities[currentCity]![0], long: Data().cities[currentCity]![1])
+                if featuredView {
+                    model.getWeather(lat: Data().cities[model.favCity]![0], long: Data().cities[model.favCity]![1])
+                    currentCity = model.favCity
+                }
+                else{
+                    model.getWeather(lat: Data().cities[currentCity]![0], long: Data().cities[currentCity]![1])
+                }
             }
             
             Spacer()

@@ -8,26 +8,35 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @EnvironmentObject var model:CityWeatherModel
+    
+    @State var profileVisable = false
+    
     var data = Data()
     
     var body: some View {
-        TabView {
-            CityView(cities: data.cities, cityList: data.cityList)
-                .tabItem {
-                    VStack{
-                        Image(systemName: "star.fill")
-                        Text("Featured")
+        NavigationView{
+            TabView {
+                CityView(cities: data.cities, cityList: data.cityList, featuredView: true, currentCity: model.favCity)
+                    .tabItem {
+                        VStack{
+                            Image(systemName: "star.fill")
+                            Text("Featured")
+                        }
                     }
-                }
-            CityListView()
-                .tabItem {
-                    VStack{
-                        Image(systemName: "globe.americas")
-                        Text("Cities")
+                CityListView()
+                    .tabItem {
+                        VStack{
+                            Image(systemName: "globe.americas")
+                            Text("Cities")
+                        }
                     }
-                }
+            }
+            .toolbar{
+                Button(action: {profileVisable.toggle()}, label: {Image(systemName: "person.crop.circle")}).sheet(isPresented: $profileVisable,onDismiss: {model.getWeather(lat: Data().cities[model.favCity]![0], long: Data().cities[model.favCity]![1])}, content: {ProfileView()})
+            }
+            .foregroundColor(Color.black)
         }
-        .foregroundColor(Color.black)
     }
 }
 
