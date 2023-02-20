@@ -10,8 +10,6 @@ import SwiftUI
 struct ProfileView: View {
     @EnvironmentObject var model:CityWeatherModel
     
-    
-    
     var data = Data()
     
     var body: some View {

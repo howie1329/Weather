@@ -22,10 +22,16 @@ struct CityView: View {
             
             Spacer()
             
-            Text(currentCity)
-                .font(.system(size: 50, weight: .bold))
-                .padding(.bottom,5)
-            
+            if featuredView{
+                Text(model.favCity)
+                    .font(.system(size: 50, weight: .bold))
+                    .padding(.bottom,5)
+            }
+            else{
+                Text(currentCity)
+                    .font(.system(size: 50, weight: .bold))
+                    .padding(.bottom,5)
+            }
             VStack(alignment:.center,spacing: 50){
                 VStack{
                     HStack{
@@ -44,7 +50,13 @@ struct CityView: View {
                 Button("Tap For Details"){
                     showDetailView.toggle()
                 }.sheet(isPresented: $showDetailView) {
-                    CityDetailView(currentCity: currentCity)
+                    if featuredView{
+                        CityDetailView(currentCity: model.favCity)
+                    }
+                    else{
+                        CityDetailView(currentCity: currentCity)
+                    }
+                    
                 }
                 .foregroundColor(.black)
                 .buttonStyle(.bordered)
