@@ -17,7 +17,7 @@ struct MainTabView: View {
     var body: some View {
         NavigationView{
             TabView {
-                CityView(cities: data.cities, cityList: data.cityList, featuredView: true, currentCity: model.favCity)
+                CityView(featuredView: true, currentCity: model.favCity)
                     .tabItem {
                         VStack{
                             Image(systemName: "star.fill")

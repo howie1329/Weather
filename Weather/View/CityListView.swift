@@ -11,11 +11,14 @@ struct CityListView: View {
     var data = Data()
     
     var body: some View {
-        NavigationView{
+        ZStack(alignment:.top){
+            BackgroundView(topColor: .blue, bottomColoer: .white)
+            Text("All Cities")
+                .font(.system(size: 35,weight: .bold))
             ScrollView{
                 LazyVStack(alignment:.leading,spacing: 10){
                     ForEach(data.cityList,id: \.self){item in
-                        NavigationLink(destination: CityView(cities: data.cities, cityList: data.cityList,currentCity: item), label: {
+                        NavigationLink(destination: CityView(currentCity: item), label: {
                             VStack{
                                 Text(item)
                                     .bold()
@@ -26,11 +29,9 @@ struct CityListView: View {
                         Divider()
                     }
                 }
-                .padding()
-            }
-            .navigationTitle("ALL Cities")
+                .padding([.top,.horizontal],25)
+            }.padding(.top,50)
         }
-        .padding()
     }
 }
 

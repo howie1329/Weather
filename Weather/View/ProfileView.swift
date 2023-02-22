@@ -14,18 +14,24 @@ struct ProfileView: View {
     
     var body: some View {
         NavigationView{
-            VStack{
-                Section{
-                    Picker("Fav City", selection: $model.favCity){
-                        ForEach(data.cityList, id:\.self){
-                            Text($0)
+            ZStack{
+                BackgroundView(topColor: .blue, bottomColoer: .white)
+                VStack{
+                    Form{
+                        Picker("Fav City", selection: $model.favCity){
+                            Text("Pick Your Featured City")
+                                .font(.title)
+                            ForEach(data.cityList, id:\.self){
+                                Text($0)
+                            }
                         }
-                    }.pickerStyle(.automatic)
-                } header: {
-                    Text("Featured City")
+                        .pickerStyle(.wheel)
+                    }
                 }
+                .padding(.top)
+                .navigationTitle("Profile Settings")
+                .scrollContentBackground(.hidden)
             }
-            .navigationTitle("Profile Settings")
         }
     }
 }

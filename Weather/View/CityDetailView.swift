@@ -14,37 +14,38 @@ struct CityDetailView: View {
     
     var body: some View {
         NavigationView{
-            VStack(spacing:10){
-                VStack(spacing:10){
-                    Text(currentCity)
-                        .font(.system(size: 45, weight: .bold))
-                    HStack(spacing:30){
-                        Text("\(model.currentTemp)°")
-                        Text(model.simpleDescription)
+            ZStack(alignment:.top){
+                BackgroundView(topColor: .blue, bottomColoer: .white)
+                VStack{
+                    VStack(spacing:20){
+                        Text(currentCity)
+                            .font(.system(size: 45, weight: .bold))
+                        VStack{
+                            Text("\(model.currentTemp)°")
+                                .font(.system(size: 70,weight: .bold))
+                            Text(model.description.capitalized)
+                                .font(.system(size: 30))
+                        }
+                    }
+                    .padding(.bottom,55)
+                    VStack(spacing:30){
+                        HStack(spacing:50){
+                            Text("Min Temp: \(model.minTemp)°")
+                            Text("Max Temp: \(model.maxTemp)°")
+                            
+                            
+                        }
+                        HStack(spacing:50){
+                            Text("Feels Like: \(model.feelsLike)°")
+                            Text("Wind Speed: \(model.windSpeed) mph")
+                        }
                     }
                     .bold()
-                    .font(.title)
-                }
-                .padding(.bottom,5)
-                Text(model.description)
-                    .bold()
-                HStack(spacing:10){
-                    VStack(spacing:10){
-                        Text("Min Temp: \(model.minTemp)°")
-                        Text("Max Temp: \(model.maxTemp)°")
-                        
-                        
-                    }
-                    VStack(spacing:10){
-                        Text("Feels Like: \(model.feelsLike)°")
-                        Text("Wind Speed: \(model.windSpeed) mph")
-                    }
-                }
-                .bold()
-                .font(.headline)
-                .navigationTitle("Detail View")
+                    .font(.headline)
+                    .navigationTitle("\(currentCity)'s Detail View")
+                }.padding(.top,90)
+                
             }
-            
         }
     }
 }
