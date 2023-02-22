@@ -39,9 +39,19 @@ struct CityDetailView: View {
                             Text("Feels Like: \(model.feelsLike)°")
                             Text("Wind Speed: \(model.windSpeed) mph")
                         }
+                        
+                        Gauge(value: Float(model.currentTemp) ?? 0.0,in: (Float(model.minTemp) ?? 0.0)...(Float(model.maxTemp) ?? 0.0)) {
+                        } currentValueLabel: {
+                        } minimumValueLabel: {
+                            Text("\(model.minTemp)")
+                        } maximumValueLabel: {
+                            Text("\(model.maxTemp)")
+                        }
+                        
                     }
                     .bold()
                     .font(.headline)
+                    .padding()
                     .navigationTitle("\(currentCity)'s Detail View")
                 }.padding(.top,90)
                 
