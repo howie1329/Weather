@@ -44,6 +44,15 @@ struct CityView: View {
                         Gauge(value: Float(model.currentTemp) ?? 0.0, in: 0...100){}
                             .gaugeStyle(.accessoryLinear)
                         
+                        Gauge(value: Float(model.currentTemp) ?? 0.0,in: (Float(model.minTemp) ?? 0.0)...(Float(model.maxTemp) ?? 0.0)) {
+                        } currentValueLabel: {
+                        } minimumValueLabel: {
+                            Text("\(model.minTemp)")
+                        } maximumValueLabel: {
+                            Text("\(model.maxTemp)")
+                        }
+
+                        
                         Text("Feels Like: \(model.feelsLike)°")
                             .font(.subheadline)
                             .bold()
